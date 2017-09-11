@@ -1,9 +1,10 @@
 package com.qubanzhuan;
 
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.log4j.Logger;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,10 +22,10 @@ import javax.sql.DataSource;
 @ComponentScan
 @MapperScan("com.qubanzhuan.mapper")
 public class Application {
-    private static Logger logger = Logger.getLogger(Application.class);
+    private static Logger logger = LoggerFactory.getLogger(Application.class);
 
     @Bean
-    @ConfigurationProperties(prefix="spring.datasource")
+    @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource dataSource() {
         return new org.apache.tomcat.jdbc.pool.DataSource();
     }
@@ -52,6 +53,7 @@ public class Application {
      * Start
      */
     public static void main(String[] args) {
+        logger.info("SpringBoot init =========");
         SpringApplication.run(Application.class, args);
         logger.info("SpringBoot Start Success");
     }
