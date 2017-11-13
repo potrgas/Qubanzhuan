@@ -8,6 +8,7 @@ public class Order {
     private String orderId;
     private String productName;
     private String productPrice;
+    private String createDate;
 
     public String getMachineCode() {
         return machineCode;
@@ -39,5 +40,13 @@ public class Order {
 
     public void setProductPrice(String productPrice) {
         this.productPrice = productPrice;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
     }
 }
