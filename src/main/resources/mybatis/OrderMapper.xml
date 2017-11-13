@@ -5,7 +5,8 @@
     <select id="getOrders" parameterType="java.lang.String" resultType="com.qubanzhuan.bean.Order">
         select machine_code machineCode,order_id orderId,product_name productName,price productPrice
          from business_order
-         order by create_date desc;
+         order by create_date desc
+         limit 50;
     </select>
 
 </mapper>
